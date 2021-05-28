@@ -43,8 +43,14 @@ public class LinebotController {
     replysticker(event.getReplyToken(), new StickerMessage(message.getPackageId(), message.getStickerId()
     ));
     }
-    
-    private void replysticker(String replyToken, StickerMessage stickerMessage) {
+    private void replysticker(@NonNull String replyToken,@NonNull StickerMessage stickerMessage) {
+        try {
+            BotApiResponse response = lineMessagingClient.replyMessage(
+                    new ReplyMessage(replyToken, stickerMessage)
+            ).get();
+        } catch (InterruptedException | ExecutionException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void handleTextContent(String replyToken, Event event, 
