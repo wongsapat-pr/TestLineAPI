@@ -9,8 +9,10 @@ import com.linecorp.bot.client.LineMessagingClient;
 import com.linecorp.bot.model.ReplyMessage;
 import com.linecorp.bot.model.event.Event;
 import com.linecorp.bot.model.event.MessageEvent;
+import com.linecorp.bot.model.event.message.StickerMessageContent;
 import com.linecorp.bot.model.event.message.TextMessageContent;
 import com.linecorp.bot.model.message.Message;
+import com.linecorp.bot.model.message.StickerMessage;
 import com.linecorp.bot.model.message.TextMessage;
 import com.linecorp.bot.model.response.BotApiResponse;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
@@ -26,12 +28,23 @@ import lombok.extern.slf4j.Slf4j;
 public class LinebotController {
     @Autowired
     private LineMessagingClient lineMessagingClient;
-    
+
     @EventMapping
     public void handleTextMessage(MessageEvent<TextMessageContent> event) {
         log.info(event.toString());
         TextMessageContent message = event.getMessage();
         handleTextContent(event.getReplyToken(), event, message);
+    }
+
+    @EventMapping
+    public void handleStickerMessage(MessageEvent<StickerMessageContent> event) {
+    log.info(event.toString());
+    StickerMessageContent message = event.getMessage();
+    replysticker(event.getReplyToken(), new StickerMessage(message.getPackageId(), message.getStickerId()
+    ));
+    }
+    
+    private void replysticker(String replyToken, StickerMessage stickerMessage) {
     }
 
     private void handleTextContent(String replyToken, Event event, 
@@ -92,4 +105,5 @@ public class LinebotController {
             throw new RuntimeException(e);
         }
     }
+    
 }
