@@ -44,10 +44,15 @@
             <version>1.20.0</version>
         </dependency>
 		<dependency>
-    <groupId>com.sun.activation</groupId>
-    <artifactId>javax.activation</artifactId>
-    <version>1.2.0</version>
-</dependency>
+			<groupId>com.sun.activation</groupId>
+			<artifactId>javax.activation</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>21.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
