@@ -83,7 +83,7 @@ public class LinebotController {
                 break;
 
             }
-            case "flex":
+            case "flex movie":
                 this.reply(replyToken, new LineFlexMessage().get());
                 break;
             default:

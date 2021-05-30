@@ -29,7 +29,7 @@ public class LineFlexMessage implements Supplier<FlexMessage>{
                 .body(bodyBlock)
                 .footer(footerBlock)
                 .build();
-        return new FlexMessage("Movie Menu", bubble);
+        return new FlexMessage("ALT", bubble);
     }
     private Image createHeroBlock() {
         return Image.builder()
