@@ -4,13 +4,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-
+import com.example.linebottest.controller.LineFlexMessage;
 import com.linecorp.bot.client.LineMessagingClient;
 import com.linecorp.bot.model.ReplyMessage;
 import com.linecorp.bot.model.event.Event;
 import com.linecorp.bot.model.event.MessageEvent;
 import com.linecorp.bot.model.event.message.StickerMessageContent;
 import com.linecorp.bot.model.event.message.TextMessageContent;
+import com.linecorp.bot.model.message.FlexMessage;
 import com.linecorp.bot.model.message.Message;
 import com.linecorp.bot.model.message.StickerMessage;
 import com.linecorp.bot.model.message.TextMessage;
@@ -80,11 +81,21 @@ public class LinebotController {
                             });
                 }
                 break;
+
             }
+            case "flex":
+                this.reply(replyToken, new LineFlexMessage().get());
+                break;
             default:
                 log.info("Return echo message %s : %s", replyToken, text);
                 this.replyText(replyToken, text);
         }
+    }
+
+
+
+    private void reply(String replyToken, FlexMessage flexMessage) {
+        reply(replyToken, flexMessage);
     }
 
     private void replyText(@NonNull  String replyToken, @NonNull String message) {
