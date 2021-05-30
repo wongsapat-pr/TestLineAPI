@@ -89,9 +89,6 @@ public class LinebotController {
             case "Flex1":
                 this.reply(replyToken, new LineFlexMessage().get());
                 break;
-            case "Flex2":
-                this.reply(replyToken, new LineFlexMessage2().get());
-                break;
             case "Confirm": {
                 ConfirmTemplate confirmTemplate = new ConfirmTemplate(
                         "Do it?",
