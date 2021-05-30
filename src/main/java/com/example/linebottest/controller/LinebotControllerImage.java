@@ -37,7 +37,7 @@ public class LinebotControllerImage {
     private LineMessagingClient lineMessagingClient;
     
     @EventMapping
-    public void handleImageMessage(MessageEvent<ImageMessageContent> event) {
+    public void handleImageMessage(MessageEvent<ImageMessageContent> event) throws IOException{
         log.info(event.toString());
         ImageMessageContent content = event.getMessage();
         String replyToken = event.getReplyToken();
@@ -110,7 +110,7 @@ public class LinebotControllerImage {
     
     private static DownloadedContent createTempFile(String ext) {
         String fileName = LocalDateTime.now() + "-" 
-                          + UUID.randomUUID().toString() 
+                          + UUID.randomUUID() 
                           + "." + ext;
         Path tempFile = LineBotTestApplication.downloadedContentDir.resolve(fileName);
         tempFile.toFile().deleteOnExit();

@@ -13,9 +13,12 @@ import lombok.extern.slf4j.Slf4j;
 public class LinebotMvcConfigurer implements WebMvcConfigurer{
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        String downloadedContentUri = LineBotTestApplication.downloadedContentDir.toUri().toASCIIString();
-        log.info("downloaded Uri: {}", downloadedContentUri);
+        String downloadedContentUri = LineBotTestApplication.downloadedContentDir
+                .toUri().toASCIIString();
+        log.info("downloaded dir: {}", downloadedContentUri);
         registry.addResourceHandler("/downloaded/**")
                 .addResourceLocations(downloadedContentUri);
+        registry.addResourceHandler("/static/**")
+                .addResourceLocations("classpath:/static/");
     }
 }
