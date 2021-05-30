@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutionException;
 import com.example.linebottest.controller.LineFlexMessage;
 import com.linecorp.bot.client.LineMessagingClient;
 import com.linecorp.bot.model.ReplyMessage;
+import com.linecorp.bot.model.action.MessageAction;
 import com.linecorp.bot.model.event.Event;
 import com.linecorp.bot.model.event.MessageEvent;
 import com.linecorp.bot.model.event.message.StickerMessageContent;
@@ -14,7 +15,9 @@ import com.linecorp.bot.model.event.message.TextMessageContent;
 import com.linecorp.bot.model.message.FlexMessage;
 import com.linecorp.bot.model.message.Message;
 import com.linecorp.bot.model.message.StickerMessage;
+import com.linecorp.bot.model.message.TemplateMessage;
 import com.linecorp.bot.model.message.TextMessage;
+import com.linecorp.bot.model.message.template.ConfirmTemplate;
 import com.linecorp.bot.model.response.BotApiResponse;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
@@ -83,9 +86,22 @@ public class LinebotController {
                 break;
 
             }
-            case "flex movie":
+            case "flex1":
                 this.reply(replyToken, new LineFlexMessage().get());
                 break;
+            case "flex2":
+                this.reply(replyToken, new LineFlexMessage2().get());
+                break;
+            case "confirm": {
+                ConfirmTemplate confirmTemplate = new ConfirmTemplate(
+                        "Do it?",
+                        new MessageAction("Yes", "Yes!"),
+                        new MessageAction("No", "No!")
+                );
+                TemplateMessage templateMessage = new TemplateMessage("Confirm alt text", confirmTemplate);
+                this.reply(replyToken, templateMessage);
+                break;
+                }
             default:
                 log.info("Return echo message %s : %s", replyToken, text);
                 this.replyText(replyToken, text);
@@ -93,6 +109,10 @@ public class LinebotController {
     }
 
 
+
+    private void reply(String replyToken, TemplateMessage templateMessage) {
+        reply(replyToken, templateMessage);
+    }
 
     private void reply(String replyToken, FlexMessage flexMessage) {
         reply(replyToken, flexMessage);
