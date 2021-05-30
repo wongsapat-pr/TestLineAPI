@@ -86,13 +86,13 @@ public class LinebotController {
                 break;
 
             }
-            case "flex1":
+            case "Flex1":
                 this.reply(replyToken, new LineFlexMessage().get());
                 break;
-            case "flex2":
+            case "Flex2":
                 this.reply(replyToken, new LineFlexMessage2().get());
                 break;
-            case "confirm": {
+            case "Confirm": {
                 ConfirmTemplate confirmTemplate = new ConfirmTemplate(
                         "Do it?",
                         new MessageAction("Yes", "Yes!"),
@@ -111,11 +111,23 @@ public class LinebotController {
 
 
     private void reply(String replyToken, TemplateMessage templateMessage) {
-        reply(replyToken, templateMessage);
+        try {
+            BotApiResponse response = lineMessagingClient.replyMessage(
+                    new ReplyMessage(replyToken, templateMessage)
+            ).get();
+        } catch (InterruptedException | ExecutionException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void reply(String replyToken, FlexMessage flexMessage) {
-        reply(replyToken, flexMessage);
+        try {
+            BotApiResponse response = lineMessagingClient.replyMessage(
+                    new ReplyMessage(replyToken, flexMessage)
+            ).get();
+        } catch (InterruptedException | ExecutionException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void replyText(@NonNull  String replyToken, @NonNull String message) {
