@@ -20,6 +20,8 @@ import com.linecorp.bot.model.response.BotApiResponse;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 
+import com.example.linebottest.controller.LineFlexCarousel;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import lombok.NonNull;
@@ -86,6 +88,9 @@ public class LinebotController {
             }
             case "Flex1":
                 this.reply(replyToken, new LineFlexMessage().get());
+                break;
+            case "Recommend":
+                this.reply(replyToken, new LineFlexCarousel().get());
                 break;
             case "Confirm": {
                 ConfirmTemplate confirmTemplate = new ConfirmTemplate(
