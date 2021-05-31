@@ -25,10 +25,10 @@ public class LineFlexCarousel implements Supplier<FlexMessage>{
     public FlexMessage get() {
         final Bubble bubble1 = createBubble("Scary Movie",
                 "Scary Movie Description",
-                "https://upload.wikimedia.org/wikipedia/en/2/29/Movie_poster_for_%22Scary_Movie%22.jpg");
+                "https://upload.wikimedia.org/wikipedia/en/2/29/Movie_poster_for_%22Scary_Movie%22.jpg","https://www.movie2free.biz/blog/movies/scary-movie/");
         final Bubble bubble2 = createBubble("Spongebob Movie",
                 "Spongebob Movie Description",
-                "https://m.media-amazon.com/images/M/MV5BOGYxYzZkMWQtNjJkMy00NTlkLWExNWMtOTNhMTg4MDcxNmU3XkEyXkFqcGdeQXVyMDk5Mzc5MQ@@._V1_.jpg");
+                "https://m.media-amazon.com/images/M/MV5BOGYxYzZkMWQtNjJkMy00NTlkLWExNWMtOTNhMTg4MDcxNmU3XkEyXkFqcGdeQXVyMDk5Mzc5MQ@@._V1_.jpg","https://movie2dee.com/movies/the-spongebob-movie-sponge-out-of-water-2015/");
         final Bubble seeMore = createSeeMoreBubble();
         final Carousel carousel = Carousel.builder()
                 .contents(Arrays.asList(bubble1, bubble2, seeMore))
@@ -36,10 +36,10 @@ public class LineFlexCarousel implements Supplier<FlexMessage>{
         return new FlexMessage("Catalogue", carousel);
     }
 
-    private Bubble createBubble(String title, String price, String imageURL) {
+    private Bubble createBubble(String title, String price, String imageURL,String URL) {
         final Image heroBlock = createHeroBlock(imageURL);
         final Box bodyBlock = createBodyBlock(title, price);
-        final Box footerBlock = createFooterBlock();
+        final Box footerBlock = createFooterBlock(URL);
         return Bubble.builder()
                 .hero(heroBlock)
                 .body(bodyBlock)
@@ -88,18 +88,17 @@ public class LineFlexCarousel implements Supplier<FlexMessage>{
                 .build();
     }
 
-    private Box createFooterBlock() {
+    private Box createFooterBlock(String URL) {
         final Spacer spacer = Spacer.builder().size(FlexMarginSize.XXL).build();
         final Button button = Button.builder()
                 .style(Button.ButtonStyle.PRIMARY)
                 .color("#905c44")
-                .action(new URIAction("Watch Movie", "https://movie2freehd.com/"))
+                .action(new URIAction("Watch Movie", URL))
                 .build();
         return Box.builder()
                 .layout(FlexLayout.VERTICAL)
                 .contents(Arrays.asList(spacer, button))
                 .build();
         
-                
     }
 }
