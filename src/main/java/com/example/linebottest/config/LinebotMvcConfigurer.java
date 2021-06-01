@@ -1,4 +1,4 @@
-package com.example.linebottest.controller;
+package com.example.linebottest.config;
 
 import com.example.linebottest.LineBotTestApplication;
 

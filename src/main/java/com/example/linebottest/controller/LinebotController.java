@@ -86,12 +86,13 @@ public class LinebotController {
                 break;
 
             }
-            case "Flex1":
+            case "Website":
                 this.reply(replyToken, new LineFlexMessage().get());
                 break;
             case "Recommend":
                 this.reply(replyToken, new LineFlexCarousel().get());
                 break;
+            
             case "Confirm": {
                 ConfirmTemplate confirmTemplate = new ConfirmTemplate(
                         "Do it?",

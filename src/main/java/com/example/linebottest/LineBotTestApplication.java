@@ -39,20 +39,20 @@ public class LineBotTestApplication {
 
 	public static void main(String[] args) throws IOException {
 		downloadedContentDir = Files.createTempDirectory("line-bot");
-		// YAML
+		// //YAML
         // String pathYamlHome = "asset/richmenu-home.yml";
         // String pathYamlMore = "asset/richmenu-more.yml";
-        // Rich Image Menu
+        // // Rich Image Menu
         // String pathImageHome = "asset/richmenu-home.jpg";
         // String pathImageMore = "asset/richmenu-more.jpg";
       
         // String richMenuId;
 
-        // Create 1st Rich Menu (Home Menu)
+        // // Create 1st Rich Menu (Home Menu)
         // richMenuId = createRichMenu(pathYamlHome);
         // imageUploadRichMenu(richMenuId, pathImageHome);
 
-        // Create 2nd Rich Menu (More Menu)
+        // // Create 2nd Rich Menu (More Menu)
         // richMenuId = createRichMenu(pathYamlMore);
         // imageUploadRichMenu(richMenuId, pathImageMore);
 
