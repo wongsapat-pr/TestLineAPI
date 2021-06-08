@@ -3,6 +3,7 @@ package com.example.linebottest.controller;
 import java.util.Arrays;
 import java.util.function.Supplier;
 
+import com.linecorp.bot.model.action.MessageAction;
 import com.linecorp.bot.model.action.URIAction;
 import com.linecorp.bot.model.message.FlexMessage;
 import com.linecorp.bot.model.message.flex.component.Box;
@@ -120,9 +121,14 @@ public class LineFlexMessage implements Supplier<FlexMessage>{
                 .color("#905c44")
                 .action(new URIAction("Go to Website", "https://movie2freehd.com/"))
                 .build();
+        final Button button2 = Button.builder()
+                .style(Button.ButtonStyle.PRIMARY)
+                .color("#905c44")
+                .action(new MessageAction("Recommend", "Recommend"))
+                .build();
         return Box.builder()
                 .layout(FlexLayout.VERTICAL)
-                .contents(Arrays.asList(spacer, button))
+                .contents(Arrays.asList(spacer, button,button2))
                 .build();
     }
 
