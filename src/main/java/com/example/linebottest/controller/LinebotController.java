@@ -97,6 +97,9 @@ public class LinebotController {
             case "Salary":
                 this.reply(replyToken, new LineFlexSalary().get());
                 break;
+            case "เงินเดือน":
+                this.reply(replyToken, new LineFlexSalary().get());
+                break;
             
             case "Confirm": {
                 ConfirmTemplate confirmTemplate = new ConfirmTemplate(
