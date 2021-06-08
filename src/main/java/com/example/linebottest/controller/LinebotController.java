@@ -42,22 +42,6 @@ public class LinebotController {
         handleTextContent(event.getReplyToken(), event, message);
     }
 
-    // @EventMapping
-    // public void handleStickerMessage(MessageEvent<StickerMessageContent> event) {
-    // log.info(event.toString());
-    // StickerMessageContent message = event.getMessage();
-    // replysticker(event.getReplyToken(), new StickerMessage(message.getPackageId(), message.getStickerId()
-    // ));
-    // }
-    // private void replysticker(@NonNull String replyToken,@NonNull StickerMessage stickerMessage) {
-    //     try {
-    //         BotApiResponse response = lineMessagingClient.replyMessage(
-    //                 new ReplyMessage(replyToken, stickerMessage)
-    //         ).get();
-    //     } catch (InterruptedException | ExecutionException e) {
-    //         throw new RuntimeException(e);
-    //     }
-    // }
 
     private void handleTextContent(String replyToken, Event event, 
                                    TextMessageContent content) {
@@ -93,12 +77,12 @@ public class LinebotController {
                 break;
             case "Recommend":
                 this.reply(replyToken, new LineFlexCarousel().get());
-                break;
-            case "Salary":
-                this.reply(replyToken, new LineFlexSalary().get());
-                break;
+                break;  
             case "เงินเดือน":
                 this.reply(replyToken, new LineFlexSalary().get());
+                break;
+            case "บักทึกการลงเวลา":
+                this.reply(replyToken, new LineFlexRecordtime().get());
                 break;
             
             case "Confirm": {

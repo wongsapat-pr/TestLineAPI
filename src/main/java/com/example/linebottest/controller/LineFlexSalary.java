@@ -1,5 +1,6 @@
 package com.example.linebottest.controller;
 
+import java.time.Month;
 import java.util.Arrays;
 import java.util.function.Supplier;
 
@@ -46,19 +47,20 @@ public class LineFlexSalary implements Supplier<FlexMessage>{
     
         private Box createBodyHeaderBox() {
             final Text bodyHeaderText = Text.builder()
-                    .text("RECEIPT")
+                    .text("สไปเดร์เอชอาร์เอ็ม")
                     .weight(Text.TextWeight.BOLD)
                     .color("#1db446")
                     .size(FlexFontSize.SM)
                     .build();
             final Text bodyTitleHeaderText = Text.builder()
-                    .text("Brown's Store")
+                    .text("ใบเสร็จเงินเดือน")
                     .weight(Text.TextWeight.BOLD)
                     .size(FlexFontSize.XXL)
                     .margin(FlexMarginSize.MD)
                     .build();
-            final Text bodyTitleHeaderDetail = Text.builder()
-                    .text("Silom, Bangkok")
+            String month = "ม.ค";
+                final Text bodyTitleHeaderDetail = Text.builder()
+                    .text("เงินเดือนประจำเดือน "+ month)
                     .size(FlexFontSize.XS)
                     .color("#aaaaaa")
                     .wrap(true)
@@ -75,9 +77,9 @@ public class LineFlexSalary implements Supplier<FlexMessage>{
     
         private Box createBodyItemBlock() {
             final Separator separator = Separator.builder().margin(FlexMarginSize.XXL).build();
-            final Box item1 = createItem("Energy Drink", "$2.99");
-            final Box item2 = createItem("Chewing Gum", "$0.99");
-            final Box item3 = createItem("Bottled Water", "$3.33");
+            final Box item1 = createItem("เงินเดือน", "$2.99");
+            final Box item2 = createItem("เงินประจำตำแหน่ง", "$0.99");
+            final Box item3 = createItem("เงินได้พิเศษ", "$3.33");
             return Box.builder()
                     .layout(FlexLayout.VERTICAL)
                     .margin(FlexMarginSize.XXL)
@@ -91,10 +93,10 @@ public class LineFlexSalary implements Supplier<FlexMessage>{
     
         private Box createBodySummaryBlock() {
             final Separator separator = Separator.builder().margin(FlexMarginSize.XXL).build();
-            final Box items = createItem("ITEMS", "3");
-            final Box total = createItem("TOTAL", "$7.31");
-            final Box cash = createItem("CASH", "$8.00");
-            final Box change = createItem("CHANGE", "$0.69");
+            final Box items = createItem("เงินกู้สหกรณ์", "3");
+            final Box total = createItem("เงินกู้องค์กร", "$7.31");
+            final Box cash = createItem("เงินหักอื่นๆ", "$8.00");
+            final Box change = createItem("สุทธิ", "$0.69");
             return Box.builder()
                     .layout(FlexLayout.VERTICAL)
                     .margin(FlexMarginSize.XXL)
