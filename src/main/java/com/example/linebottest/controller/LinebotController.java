@@ -21,6 +21,8 @@ import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 
 import com.example.linebottest.controller.LineFlexCarousel;
+import com.example.linebottest.controller.LineFlexSalary;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -91,6 +93,9 @@ public class LinebotController {
                 break;
             case "Recommend":
                 this.reply(replyToken, new LineFlexCarousel().get());
+                break;
+            case "Salary":
+                this.reply(replyToken, new LineFlexSalary().get());
                 break;
             
             case "Confirm": {
