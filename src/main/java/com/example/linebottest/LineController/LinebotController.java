@@ -1,4 +1,4 @@
-package com.example.linebottest.controller;
+package com.example.linebottest.LineController;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,10 +19,6 @@ import com.linecorp.bot.model.message.template.ConfirmTemplate;
 import com.linecorp.bot.model.response.BotApiResponse;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
-
-import com.example.linebottest.controller.LineFlexCarousel;
-import com.example.linebottest.controller.LineFlexSalary;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 

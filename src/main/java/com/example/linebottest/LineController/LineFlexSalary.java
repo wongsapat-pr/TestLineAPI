@@ -1,4 +1,4 @@
-package com.example.linebottest.controller;
+package com.example.linebottest.LineController;
 
 import java.time.Month;
 import java.util.Arrays;
