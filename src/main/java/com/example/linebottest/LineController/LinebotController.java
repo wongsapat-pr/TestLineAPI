@@ -77,7 +77,7 @@ public class LinebotController {
             case "เงินเดือน":
                 this.reply(replyToken, new LineFlexSalary().get());
                 break;
-            case "บักทึกการลงเวลา":
+            case "บันทึกการลงเวลา":
                 this.reply(replyToken, new LineFlexRecordtime().get());
                 break;
             
@@ -98,7 +98,7 @@ public class LinebotController {
     }
 
 
-
+    //for Template
     private void reply(String replyToken, TemplateMessage templateMessage) {
         try {
             BotApiResponse response = lineMessagingClient.replyMessage(
@@ -109,6 +109,7 @@ public class LinebotController {
         }
     }
 
+    //for Flex Message
     private void reply(String replyToken, FlexMessage flexMessage) {
         try {
             BotApiResponse response = lineMessagingClient.replyMessage(
@@ -119,6 +120,7 @@ public class LinebotController {
         }
     }
 
+    //for Text
     private void replyText(@NonNull  String replyToken, @NonNull String message) {
         if(replyToken.isEmpty()) {
             throw new IllegalArgumentException("replyToken is not empty");

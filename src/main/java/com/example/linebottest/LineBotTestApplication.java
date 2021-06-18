@@ -14,8 +14,6 @@ public class LineBotTestApplication {
 	public static Path downloadedContentDir;
 
 	public static void main(String[] args) throws IOException {
-		
-		
 		SpringApplication.run(LineBotTestApplication.class, args);
 	}
 

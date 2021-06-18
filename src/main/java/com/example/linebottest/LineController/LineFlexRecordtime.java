@@ -44,7 +44,8 @@ public class LineFlexRecordtime implements Supplier<FlexMessage>{
         final Button button = Button.builder()
                 .style(Button.ButtonStyle.PRIMARY)
                 .color("#905c44")
-                .action(new URIAction("เปิดใช้งานกล้อง", "https://line.me/R/nv/camera/"))
+                // .action(new URIAction("เปิดใช้งานกล้อง", "https://line.me/R/nv/camera/"))
+                .action(new URIAction("เปิดใช้งานกล้อง", "https://liff.line.me/"))
                 .build();
         
         return Box.builder()

@@ -1,16 +1,11 @@
 package com.example.linebottest.LineController;
 
-import java.time.Month;
 import java.util.Arrays;
 import java.util.function.Supplier;
 
-import com.linecorp.bot.model.action.URIAction;
 import com.linecorp.bot.model.message.FlexMessage;
 import com.linecorp.bot.model.message.flex.component.Box;
-import com.linecorp.bot.model.message.flex.component.Button;
-import com.linecorp.bot.model.message.flex.component.Image;
 import com.linecorp.bot.model.message.flex.component.Separator;
-import com.linecorp.bot.model.message.flex.component.Spacer;
 import com.linecorp.bot.model.message.flex.component.Text;
 import com.linecorp.bot.model.message.flex.container.Bubble;
 import com.linecorp.bot.model.message.flex.unit.FlexAlign;
